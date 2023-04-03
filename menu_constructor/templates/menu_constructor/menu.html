@@ -1,12 +1,18 @@
 {% extends "menu_constructor/base.html" %}
 
 {% block content %}
-  <h1>{{ menu }}</h1>
-  <ul>
+  <h1><a href="{% url 'menu_constructor:show_menu' menu.slug %}">
+    {{ menu }}
+  </a></h1>
+
     {% for item in items %}
-      <li>{{ item }}</li>
+      <p>{{ item.start }}
+        <a href="{% url 'menu_constructor:open_menu' menu.slug item.slug%}">
+          {{ item }}
+        </a>
+      </p>
     {% empty %}
-      <li>No items have been added yet.</li>
+      <p>No items have been added yet.</p>
     {% endfor %}
-  </ul>
+
 {% endblock content %}

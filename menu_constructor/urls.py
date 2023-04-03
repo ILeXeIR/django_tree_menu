@@ -8,4 +8,6 @@ app_name = "menu_constructor"
 urlpatterns = [
     path("", views.index, name="index"),
     path("<slug:menu_slug>/", views.show_menu, name="show_menu"),
+    path("<slug:menu_slug>/<slug:item_slug>/", views.open_menu,
+         name="open_menu"),
 ]

@@ -15,9 +15,11 @@ class Menu(models.Model):
 class MenuItem(models.Model):
     # Добавить проверку на зацикливание
     title = models.CharField(max_length=255)
-    menu = models.ForeignKey("Menu", on_delete=models.CASCADE)
+    menu = models.ForeignKey("Menu", on_delete=models.CASCADE,
+                             related_name="items")
     parent = models.ForeignKey("self", on_delete=models.CASCADE,
-                               blank=True, null=True)
+                               blank=True, null=True,
+                               related_name="children")
     slug = models.CharField(max_length=32, validators=[validate_slug])
 
     class Meta:
