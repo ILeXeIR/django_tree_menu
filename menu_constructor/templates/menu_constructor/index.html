@@ -1,0 +1,14 @@
+{% extends "menu_constructor/base.html" %}
+
+{% block content %}
+  <h1>Menus</h1>
+  <ul>
+    {% for menu in menus %}
+      <li><a href="{% url 'menu_constructor:show_menu' menu.slug %}">
+        {{ menu }}
+      </a></li>
+    {% empty %}
+      <li>No menus have been added yet.</li>
+    {% endfor %}
+  </ul>
+{% endblock content %}
