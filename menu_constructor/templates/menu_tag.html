@@ -1,0 +1,15 @@
+<div class="menu">
+  <h1><a href="{% url 'menu_constructor:show_menu' menu.slug %}">
+    {{ menu }}
+  </a></h1>
+
+    {% for item in items %}
+      <p>{{ item.start }}
+        <a href="{% url 'menu_constructor:open_menu' menu.slug item.slug %}">
+          {{ item }}
+        </a>
+      </p>
+    {% empty %}
+      <p>No items have been added yet.</p>
+    {% endfor %}
+</div>

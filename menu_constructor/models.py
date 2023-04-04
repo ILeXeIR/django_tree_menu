@@ -13,7 +13,7 @@ class Menu(models.Model):
 
 
 class MenuItem(models.Model):
-    # Добавить проверку на зацикливание и принадлежность одному меню
+    # Добавить проверку на зацикливание и принадлежность одному менюgit
     title = models.CharField(max_length=255)
     menu = models.ForeignKey("Menu", on_delete=models.CASCADE,
                              related_name="items")
